@@ -131,7 +131,7 @@ public class Game extends Board{
 			}
 		}
 		//downLeft
-		if(atPosition(x-1,y+1).equals(getPiece())) {
+		if(atPosition(x-1, y+1).equals(getPiece())) {
 			downLeft = true;
 			if(atPosition(x,y).equals(BLANK)) {
 				valid = true;
@@ -145,7 +145,7 @@ public class Game extends Board{
 			}
 		}
 		//upLeft
-		if(atPosition(x-1,y-1).equals(getPiece())) {
+		if(atPosition(x-1, y-1).equals(getPiece())) {
 			upLeft = true;
 			if(atPosition(x, y).equals(BLANK)) {
 				valid = true;
@@ -212,14 +212,26 @@ public class Game extends Board{
 					if(up == true) {
 						setSquare(x, y-1, BLACK);
 					}
-					if(down == true) {
-						setSquare(x, y+1, BLACK);
+					if(upRight == true) {
+						setSquare(x+1, y-1, BLACK);
 					}
 					if(right == true) {
 						setSquare(x+1, y, BLACK);
 					}
+					if(downRight == true) {
+						setSquare(x+1, y+1, BLACK);
+					}
+					if(down == true) {
+						setSquare(x, y+1, BLACK);
+					}
+					if(downLeft == true) {
+						setSquare(x-1, y+1, BLACK);
+					}
 					if(left == true) {
 						setSquare(x-1, y, BLACK);
+					}
+					if(upLeft == true) {
+						setSquare(x-1, y-1, BLACK);
 					}
 					setSquare(x, y, setPiece(BLACK));
 					drawBoard();
@@ -266,14 +278,26 @@ public class Game extends Board{
 					if(up == true) {
 						setSquare(x, y-1, WHITE);
 					}
-					if(down == true) {
-						setSquare(x, y+1, WHITE);
+					if(upRight == true) {
+						setSquare(x+1, y-1, WHITE);
 					}
 					if(right == true) {
 						setSquare(x+1, y, WHITE);
 					}
+					if(downRight == true) {
+						setSquare(x+1, y+1, WHITE);
+					}
+					if(down == true) {
+						setSquare(x, y+1, WHITE);
+					}
+					if(downLeft == true) {
+						setSquare(x-1, y+1, WHITE);
+					}
 					if(left == true) {
 						setSquare(x-1, y, WHITE);
+					}
+					if(upLeft == true) {
+						setSquare(x-1, y-1, WHITE);
 					}
 					setSquare(x, y, setPiece(WHITE));
 					drawBoard();
