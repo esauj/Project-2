@@ -96,59 +96,82 @@ public class Game extends Board{
 //		int x2=x+1;
 		
 		//up
-		if(atPosition(x, y-1).equals(getPiece())) {
-			up = true;
-			if(atPosition(x, y).equals(BLANK)) {
-				valid = true;
+		if(y-1 >= 0) {
+			if(atPosition(x, y-1).equals(getPiece())) {
+				up = true;
+				if(atPosition(x, y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
+		
 		//upRight
-		if(atPosition(x+1, y-1).equals(getPiece())) {
-			upRight = true;
-			if(atPosition(x, y).equals(BLANK)) {
-				valid = true;
+		if(x+1 <= 7 && y-1 >= 0) {
+			if(atPosition(x+1, y-1).equals(getPiece())) {
+				upRight = true;
+				if(atPosition(x, y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
+		
 		//right
-		if(atPosition(x+1, y).equals(getPiece())) {
-			right = true;
-			if(atPosition(x, y).equals(BLANK)) {
-				valid = true;
+		if(x+1  <= 7) {
+			if(atPosition(x+1, y).equals(getPiece())) {
+				right = true;
+				if(atPosition(x, y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
+		
 		//downRight
-		if(atPosition(x+1, y+1).equals(getPiece())) {
-			downRight = true;
-			if(atPosition(x,y).equals(BLANK)) {
-				valid = true;
+		if(x+1 <= 7 && y+1 <= 7) {
+			if(atPosition(x+1, y+1).equals(getPiece())) {
+				downRight = true;
+				if(atPosition(x,y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
+		
 		//down
-		if(atPosition(x, y+1).equals(getPiece())) {
-			down = true;
-			if(atPosition(x, y).equals(BLANK)) {
-				valid = true;
+		if(y+1 <= 7) {
+			if(atPosition(x, y+1).equals(getPiece())) {
+				down = true;
+				if(atPosition(x, y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
+		
 		//downLeft
-		if(atPosition(x-1, y+1).equals(getPiece())) {
-			downLeft = true;
-			if(atPosition(x,y).equals(BLANK)) {
-				valid = true;
+		if(x-1 >= 0 && y+1 <= 7) {
+			if(atPosition(x-1, y+1).equals(getPiece())) {
+				downLeft = true;
+				if(atPosition(x,y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
+		
 		//left
-		if(atPosition(x-1, y).equals(getPiece())) {
-			left = true;
-			if(atPosition(x, y).equals(BLANK)) {
-				valid = true;
+		if(x-1 >= 0) {
+			if(atPosition(x-1, y).equals(getPiece())) {
+				left = true;
+				if(atPosition(x, y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
+		
 		//upLeft
-		if(atPosition(x-1, y-1).equals(getPiece())) {
-			upLeft = true;
-			if(atPosition(x, y).equals(BLANK)) {
-				valid = true;
+		if(x-1 >= 0 && y-1 >= 0) {
+			if(atPosition(x-1, y-1).equals(getPiece())) {
+				upLeft = true;
+				if(atPosition(x, y).equals(BLANK)) {
+					valid = true;
+				}
 			}
 		}
 		
