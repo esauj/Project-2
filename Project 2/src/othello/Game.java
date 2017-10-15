@@ -147,7 +147,7 @@ public class Game extends Board{
 		//upLeft
 		if(atPosition(x-1,y-1).equals(getPiece())) {
 			upLeft = true;
-			if(atPosition(x.y).equals(BLANK)) {
+			if(atPosition(x, y).equals(BLANK)) {
 				valid = true;
 			}
 		}
