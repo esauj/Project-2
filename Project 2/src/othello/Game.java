@@ -6,6 +6,7 @@
  */
 
 package othello;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game extends Board{
@@ -273,9 +274,14 @@ public class Game extends Board{
 			}
 		}
 		catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("Numbers must be between 1 and 8!");
+			System.out.println("OUT OF BOUNDS -- Numbers must be between 1 and 8!");
 			nextTurn();
 		}
+		catch(InputMismatchException e) {
+			System.out.println("INPUT MISMATCH -- Please only use numbers.");
+			nextTurn();
+		}
+		
 		nextTurn();
 	}
 	
@@ -340,9 +346,14 @@ public class Game extends Board{
 			}
 		}
 		catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("Numbers must be between 1 and 8!");
+			System.out.println("OUT OF BOUNDS -- Numbers must be between 1 and 8!");
 			nextTurn();
 		}
+		catch(InputMismatchException e) {
+			System.out.println("INPUT MISMATCH -- Please only use numbers.");
+			nextTurn();
+		}
+		
 		nextTurn();
 	}
 	
