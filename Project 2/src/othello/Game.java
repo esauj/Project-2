@@ -81,39 +81,77 @@ public class Game extends Board{
 	private void isValidMove(int x, int y, String color) {
 		valid = false;
 		up = false;
+		upRight = false;
 		right = false;
+		downRight = false;
 		down = false;
+		downLeft = false;
 		left = false;
+		upLeft = false;
 		setPiece(color);
 		flipPiece();
-		int y1=y-1;
-		int y2=y+1;
-		int x1=x-1;
-		int x2=x+1;
-		if(atPosition(x, y1).equals(getPiece())) {
+//		int y1=y-1;
+//		int y2=y+1;
+//		int x1=x-1;
+//		int x2=x+1;
+		
+		//up
+		if(atPosition(x, y-1).equals(getPiece())) {
 			up = true;
 			if(atPosition(x, y).equals(BLANK)) {
 				valid = true;
 			}
 		}
-		if(atPosition(x, y2).equals(getPiece())) {
-			down = true;
+		//upRight
+		if(atPosition(x+1, y-1).equals(getPiece())) {
+			upRight = true;
 			if(atPosition(x, y).equals(BLANK)) {
 				valid = true;
 			}
 		}
-		if(atPosition(x1, y).equals(getPiece())) {
-			left = true;
-			if(atPosition(x, y).equals(BLANK)) {
-				valid = true;
-			}
-		}
-		if(atPosition(x2, y).equals(getPiece())) {
+		//right
+		if(atPosition(x+1, y).equals(getPiece())) {
 			right = true;
 			if(atPosition(x, y).equals(BLANK)) {
 				valid = true;
 			}
 		}
+		//downRight
+		if(atPosition(x+1, y+1).equals(getPiece())) {
+			downRight = true;
+			if(atPosition(x,y).equals(BLANK)) {
+				valid = true;
+			}
+		}
+		//down
+		if(atPosition(x, y+1).equals(getPiece())) {
+			down = true;
+			if(atPosition(x, y).equals(BLANK)) {
+				valid = true;
+			}
+		}
+		//downLeft
+		if(atPosition(x-1,y+1).equals(getPiece())) {
+			downLeft = true;
+			if(atPosition(x,y).equals(BLANK)) {
+				valid = true;
+			}
+		}
+		//left
+		if(atPosition(x-1, y).equals(getPiece())) {
+			left = true;
+			if(atPosition(x, y).equals(BLANK)) {
+				valid = true;
+			}
+		}
+		//upLeft
+		if(atPosition(x-1,y-1).equals(getPiece())) {
+			upLeft = true;
+			if(atPosition(x.y).equals(BLANK)) {
+				valid = true;
+			}
+		}
+		
 		else if(atPosition(x, y) != BLANK){
 			valid = false;
 		}
