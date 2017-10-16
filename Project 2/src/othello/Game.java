@@ -41,6 +41,14 @@ public class Game extends Board{
 	
 	//checkMoves iterates through the board looking for valid moves for the specified color
 	private void checkBlackMoves() {
+		up = false;
+		upRight = false;
+		right = false;
+		downRight = false;
+		down = false;
+		downLeft = false;
+		left = false;
+		upLeft = false;
 		for(Integer col = 0; col < BOARD_SIZE; col++) {
 			for(Integer row = 0; row < BOARD_SIZE; row++) {
 				
@@ -52,6 +60,7 @@ public class Game extends Board{
 							if(atPosition(col, row-2).equals(isBlack())) {
 								up = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(row-3 >= 0 && atPosition(col, row-3).equals(isBlack()) && atPosition(col, row-3) != BLANK) {
@@ -78,6 +87,7 @@ public class Game extends Board{
 							if(atPosition(col+2, row-2).equals(isBlack())) {
 								upRight = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col+3 <= 7 && row-3 >= 0 && atPosition(col+3, row-3).equals(isBlack()) && atPosition(col+3, row-3) != BLANK) {
@@ -104,6 +114,7 @@ public class Game extends Board{
 							if(atPosition(col+2, row).equals(isBlack())) {
 								right = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col+3 <= 7 && atPosition(col+3, row).equals(isBlack()) && atPosition(col+3, row) != BLANK) {
@@ -130,6 +141,7 @@ public class Game extends Board{
 							if(atPosition(col+2, row+2).equals(isBlack())) {
 								downRight = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col+3 <= 7 && row+3 <= 7 && atPosition(col+3, row+3).equals(isBlack()) && atPosition(col+3, row+3) != BLANK) {
@@ -156,6 +168,7 @@ public class Game extends Board{
 							if(atPosition(col, row+2).equals(isBlack())) {
 								down = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(row+3 <= 7 && atPosition(col, row+3).equals(isBlack()) && atPosition(col, row+3) != BLANK) {
@@ -182,6 +195,7 @@ public class Game extends Board{
 							if(atPosition(col-2, row+2).equals(isBlack())) {
 								downLeft = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col-3 >= 0 && row+3 <= 7 && atPosition(col-3, row+3).equals(isBlack()) && atPosition(col-3, row+3) != BLANK) {
@@ -208,6 +222,7 @@ public class Game extends Board{
 							if(atPosition(col-2, row).equals(isBlack())) {
 								left = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col-3 >= 0 && atPosition(col-3, row).equals(isBlack()) && atPosition(col-3, row) != BLANK) {
@@ -234,6 +249,7 @@ public class Game extends Board{
 							if(atPosition(col-2, row-2).equals(isBlack())) {
 								upLeft = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col-3 >= 0 && row-3 >= 0 && atPosition(col-3, row-3).equals(isBlack()) && atPosition(col-3, row-3) != BLANK) {
@@ -259,6 +275,14 @@ public class Game extends Board{
 	}
 	
 	private void checkWhiteMoves() {
+		up = false;
+		upRight = false;
+		right = false;
+		downRight = false;
+		down = false;
+		downLeft = false;
+		left = false;
+		upLeft = false;
 		for(Integer col = 0; col < BOARD_SIZE; col++) {
 			for(Integer row = 0; row < BOARD_SIZE; row++) {
 				
@@ -270,6 +294,7 @@ public class Game extends Board{
 							if(atPosition(col, row-2).equals(isWhite())) {
 								up = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(row-3 >= 0 && atPosition(col, row-3).equals(isWhite()) && atPosition(col, row-3) != BLANK) {
@@ -296,6 +321,7 @@ public class Game extends Board{
 							if(atPosition(col+2, row-2).equals(isWhite())) {
 								upRight = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col+3 <= 7 && row-3 >= 0 && atPosition(col+3, row-3).equals(isWhite()) && atPosition(col+3, row-3) != BLANK) {
@@ -322,6 +348,7 @@ public class Game extends Board{
 							if(atPosition(col+2, row).equals(isWhite())) {
 								right = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col+3 <= 7 && atPosition(col+3, row).equals(isWhite()) && atPosition(col+3, row) != BLANK) {
@@ -348,6 +375,7 @@ public class Game extends Board{
 							if(atPosition(col+2, row+2).equals(isWhite())) {
 								downRight = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col+3 <= 7 && row+3 <= 7 && atPosition(col+3, row+3).equals(isWhite()) && atPosition(col+3, row+3) != BLANK) {
@@ -374,6 +402,7 @@ public class Game extends Board{
 							if(atPosition(col, row+2).equals(isWhite())) {
 								down = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(row+3 <= 7 && atPosition(col, row+3).equals(isWhite()) && atPosition(col, row+3) != BLANK) {
@@ -400,6 +429,7 @@ public class Game extends Board{
 							if(atPosition(col-2, row+2).equals(isWhite())) {
 								downLeft = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col-3 >= 0 && row+3 <= 7 && atPosition(col-3, row+3).equals(isWhite()) && atPosition(col-3, row+3) != BLANK) {
@@ -426,6 +456,7 @@ public class Game extends Board{
 							if(atPosition(col-2, row).equals(isWhite())) {
 								left = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col-3 >= 0 && atPosition(col-3, row).equals(isWhite()) && atPosition(col-3, row) != BLANK) {
@@ -452,6 +483,7 @@ public class Game extends Board{
 							if(atPosition(col-2, row-2).equals(isWhite())) {
 								upLeft = true;
 								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								System.out.println(validMoves[validMovesIndex]);
 								validMovesIndex++;
 							}
 							if(col-3 >= 0 && row-3 >= 0 && atPosition(col-3, row-3).equals(isWhite()) && atPosition(col-3, row-3) != BLANK) {
@@ -477,101 +509,127 @@ public class Game extends Board{
 	}
 	
 	private void makeBlackMove(int x, int y) {
+		System.out.println(up);
+		System.out.println(upRight);
+		System.out.println(right);
+		System.out.println(downRight);
+		System.out.println(down);
+		System.out.println(downLeft);
+		System.out.println(left);
+		System.out.println(upLeft);
+		int x1 = x;
+		int y1 = y;
 		if(up == true) {
-			setSquare(x, y, BLACK);
-			y--;
-			while(atPosition(x,y) != BLANK && y >= 0) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				y--;
+			setSquare(x1, y1, BLACK);
+			y1--;
+			while(atPosition(x1,y1) != BLANK && y1 >= 0) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				y1--;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(upRight == true) {
-			setSquare(x, y, BLACK);
-			x++;
-			y--;
-			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				x++;
-				y--;
+			setSquare(x1, y1, BLACK);
+			x1++;
+			y1--;
+			while(atPosition(x1,y1) != BLANK && x1 <= 7 && y1 >= 0) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				x1++;
+				y1--;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(right == true) {
-			setSquare(x, y, BLACK);
-			x++;
-			while(atPosition(x,y) != BLANK && x <= 7) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				x++;
+			setSquare(x1, y1, BLACK);
+			x1++;
+			while(atPosition(x1,y1) != BLANK && x1 <= 7) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				x1++;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(downRight == true) {
-			setSquare(x, y, BLACK);
-			x++;
-			y++;
-			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				x++;
-				y++;
+			setSquare(x1, y1, BLACK);
+			x1++;
+			y1++;
+			while(atPosition(x1,y1) != BLANK && x1 <= 7 && y1 >= 0) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				x1++;
+				y1++;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(down == true) {
-			setSquare(x, y, BLACK);
-			y++;
-			while(atPosition(x,y) != BLANK && y <= 7) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				y++;
+			setSquare(x1, y1, BLACK);
+			y1++;
+			while(atPosition(x1,y1) != BLANK && y1 <= 7) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				y1++;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(downLeft == true) {
-			setSquare(x, y, BLACK);
-			x--;
-			y++;
-			while(atPosition(x,y) != BLANK && y <= 7 && x >= 0) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				x--;
-				y++;
+			setSquare(x1, y1, BLACK);
+			x1--;
+			y1++;
+			while(atPosition(x1,y1) != BLANK && y1 <= 7 && x1 >= 0) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				x1--;
+				y1++;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(left == true) {
-			setSquare(x, y, BLACK);
-			x--;
-			while(atPosition(x,y) != BLANK && x >= 0) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				x--;
+			setSquare(x1, y1, BLACK);
+			x1--;
+			while(atPosition(x1,y1) != BLANK && x1 >= 0) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				x1--;
 			}
 		}
-		
+		x1 = x;
+		y1 = y;
+	
 		if(upLeft == true) {
-			setSquare(x, y, BLACK);
-			x--;
-			y--;
-			while(atPosition(x,y) != BLANK && x >= 0 && y >= 0) {
-				if(atPosition(x, y).equals(isWhite())) {
-				setSquare(x, y, BLACK);
-				x--;
-				y--;
+			setSquare(x1, y1, BLACK);
+			x1--;
+			y1--;
+			while(atPosition(x1,y1) != BLANK && x1 >= 0 && y1 >= 0) {
+				if(atPosition(x1, y1).equals(isWhite())) {
+				setSquare(x1, y1, BLACK);
 				}
+				x1--;
+				y1--;
 			}
 		}
+		x1 = x;
+		y1 = y;
 	}
 	
 	private void makeWhiteMove(int x, int y) {
@@ -856,9 +914,7 @@ public class Game extends Board{
 				sb.setLength(0);
 				sb.append(x + " " + y);
 				for(int i = 0; i < 32; i++) {
-					clearList();
 					if(validMoves[i] != null) {
-						System.out.println(validMoves[i]);
 						if(validMoves[i].equals(sb.toString())) {
 							makeBlackMove(x, y);
 						}
@@ -903,11 +959,12 @@ public class Game extends Board{
 				//adjust coordinates from user input to array coordinates 
 				x--;
 				y--;
+				System.out.println("Input: " + x + " " + y);
 				StringBuilder sb = new StringBuilder();
 				sb.setLength(0);
 				sb.append(x + " " + y);
+				System.out.println("StringBuilder content: " + sb.toString());
 				for(int i = 0; i < 32; i++) {
-					clearList();
 					if(validMoves[i] != null) {
 						System.out.println(validMoves[i]);
 						if(validMoves[i].equals(sb.toString())) {
