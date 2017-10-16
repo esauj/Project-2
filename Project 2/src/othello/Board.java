@@ -41,8 +41,8 @@ public class Board extends Piece{
 	 * characters to all coordinates using nested for loops
 	 */
 	public void wipeBoard() {
-		for(int i = 0; i < 8; i++) {
-			for(int j = 0; j < 8; j++) {
+		for(int i = 0; i < BOARD_SIZE; i++) {
+			for(int j = 0; j < BOARD_SIZE; j++) {
 				setSquare(i,j,BLANK);
 			}
 		}
@@ -76,7 +76,7 @@ public class Board extends Piece{
 		x = 0;
 		System.out.print(rowNum + " |");
 		while(x < 8) {
-			System.out.printf("  " + boardLayout[x][y]/*.getPiece()*/ + "  |");
+			System.out.printf("  " + boardLayout[x][y] + "  |");
 			x++;
 		}
 		x = 0;

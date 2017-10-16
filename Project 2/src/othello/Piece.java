@@ -22,6 +22,14 @@ public class Piece {
 		return color;
 	}
 	
+	public String isWhite() {
+		return WHITE;
+	}
+	
+	public String isBlack() {
+		return BLACK;
+	}
+	
 	/**
 	 * @param c Specifies what color to set
 	 * @return Returns color specified if needed
@@ -35,11 +43,12 @@ public class Piece {
 	 * flipPiece() method reassigns color when necessary
 	 */
 	public void flipPiece(){
-		if(color == BLACK)
+		if(color == BLACK) {
 			color = WHITE;
-		else
-			color=BLACK;
-	
+		}
+		else {
+			color = BLACK;
+		}
 	}
 	
 }

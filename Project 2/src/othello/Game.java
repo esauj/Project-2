@@ -20,12 +20,438 @@ public class Game extends Board{
 	String currentPlayer = PLAYER_BLACK;
 	boolean valid;
 	Scanner input = new Scanner(System.in);
+	String[] validMoves = new String[32];
+	int validMovesIndex = 0;
+	
 	
 	/**
 	 * @param Specifies what color to pass through overridden constructor
 	 */
 	public Game(String color) {
 		super(color);
+	}
+	
+	//clearList wipes all values from the validMoves array
+	//used before checking moves to ensure data is current
+	private void clearList() {
+		for(int i = 0; i < 32; i++) {
+			validMoves[i] = null;
+		}
+	}
+	
+	//checkMoves iterates through the board looking for valid moves for the specified color
+	private void checkBlackMoves() {
+		for(Integer col = 0; col < BOARD_SIZE; col++) {
+			for(Integer row = 0; row < BOARD_SIZE; row++) {
+				
+				if(atPosition(col, row) == BLANK) {
+					
+					//up
+					if(row-1 >= 0 && row-2 >= 0) {
+						if(atPosition(col, row-1).equals(isWhite())) {
+							if(atPosition(col, row-2).equals(isBlack())) {
+								up = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col, row-3).equals(isBlack()) && atPosition(col, row-3) != BLANK) {
+								up = true;
+							}
+							if(atPosition(col, row-4).equals(isBlack()) && atPosition(col, row-4) != BLANK) {
+								up = true;
+							}
+							if(atPosition(col, row-5).equals(isBlack()) && atPosition(col, row-5) != BLANK) {
+								up = true;
+							}
+							if(atPosition(col, row-6).equals(isBlack()) && atPosition(col, row-6) != BLANK) {
+								up = true;
+							}
+							if(atPosition(col, row-7).equals(isBlack()) && atPosition(col, row-7) != BLANK) {
+								up = true;
+							}
+						}
+					}
+				
+					//upRight
+					if(col+1 <= 7 && col+2 <= 7 && row-1 >= 0 && row-2 >= 0) {
+						if(atPosition(col+1, row-1).equals(isWhite())) {
+							if(atPosition(col+2, row-2).equals(isBlack())) {
+								upRight = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col+3, row-3).equals(isBlack()) && atPosition(col+3, row-3) != BLANK) {
+								upRight = true;
+							}
+							if(atPosition(col+4, row-4).equals(isBlack()) && atPosition(col+4, row-4) != BLANK) {
+								upRight = true;
+							}
+							if(atPosition(col+5, row-5).equals(isBlack()) && atPosition(col+5, row-5) != BLANK) {
+								upRight= true;
+							}
+							if(atPosition(col+6, row-6).equals(isBlack()) && atPosition(col+6, row-6) != BLANK) {
+								upRight = true;
+							}
+							if(atPosition(col+7, row-7).equals(isBlack()) && atPosition(col+7, row-7) != BLANK) {
+								upRight = true;
+							}
+						}
+					}
+				
+					//right
+					if(col+1 <= 7 && col+2 <= 7) {
+						if(atPosition(col+1, row).equals(isWhite())) {
+							if(atPosition(col+2, row).equals(isBlack())) {
+								right = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col+3, row).equals(isBlack()) && atPosition(col+3, row) != BLANK) {
+								right = true;
+							}
+							if(atPosition(col+4, row).equals(isBlack()) && atPosition(col+4, row) != BLANK) {
+								right = true;
+							}
+							if(atPosition(col+5, row).equals(isBlack()) && atPosition(col+5, row) != BLANK) {
+								right = true;
+							}
+							if(atPosition(col+6, row).equals(isBlack()) && atPosition(col+6, row) != BLANK) {
+								right = true;
+							}
+							if(atPosition(col+7, row).equals(isBlack()) && atPosition(col+7, row) != BLANK) {
+								right = true;
+							}
+						}
+					}
+					
+					//downRight
+					if(col+1 <= 7 && col+2 <=7 && row+1 <= 7 && row+2 <= 7) {
+						if(atPosition(col+1, row+1).equals(isWhite())) {
+							if(atPosition(col+2, row+2).equals(isBlack())) {
+								downRight = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col+3, row+3).equals(isBlack()) && atPosition(col+3, row+3) != BLANK) {
+								downRight = true;
+							}
+							if(atPosition(col+4, row+4).equals(isBlack()) && atPosition(col+4, row+4) != BLANK) {
+								downRight = true;
+							}
+							if(atPosition(col+5, row+5).equals(isBlack()) && atPosition(col+5, row+5) != BLANK) {
+								downRight = true;
+							}
+							if(atPosition(col+6, row+6).equals(isBlack()) && atPosition(col+6, row+6) != BLANK) {
+								downRight = true;
+							}
+							if(atPosition(col+7, row+7).equals(isBlack()) && atPosition(col+7, row+7) != BLANK) {
+								downRight = true;
+							}
+						}
+					}
+
+					//down
+					if(row+1 <= 7 && row+2 <= 7) {
+						if(atPosition(col, row+1).equals(isWhite())) {
+							if(atPosition(col, row+2).equals(isBlack())) {
+								down = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col, row+3).equals(isBlack()) && atPosition(col, row+3) != BLANK) {
+								down = true;
+							}
+							if(atPosition(col, row+4).equals(isBlack()) && atPosition(col, row+4) != BLANK) {
+								down = true;
+							}
+							if(atPosition(col, row+5).equals(isBlack()) && atPosition(col, row+5) != BLANK) {
+								down = true;
+							}
+							if(atPosition(col, row+6).equals(isBlack()) && atPosition(col, row+6) != BLANK) {
+								down = true;
+							}
+							if(atPosition(col, row+7).equals(isBlack()) && atPosition(col, row+7) != BLANK) {
+								down = true;
+							}
+						}
+					}
+
+					//downLeft
+					if(col-1 >= 0 && col-2 >= 0 && row+1 <= 7 && row+2 <= 7) {
+						if(atPosition(col-1, row+1).equals(isWhite())) {
+							if(atPosition(col-2, row+2).equals(isBlack())) {
+								downLeft = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col-3, row+3).equals(isBlack()) && atPosition(col-3, row+3) != BLANK) {
+								downLeft = true;
+							}
+							if(atPosition(col-4, row+4).equals(isBlack()) && atPosition(col-4, row+4) != BLANK) {
+								downLeft = true;
+							}
+							if(atPosition(col-5, row+5).equals(isBlack()) && atPosition(col-5, row+5) != BLANK) {
+								downLeft = true;
+							}
+							if(atPosition(col-6, row+6).equals(isBlack()) && atPosition(col-6, row+6) != BLANK) {
+								downLeft = true;
+							}
+							if(atPosition(col-7, row+7).equals(isBlack()) && atPosition(col-7, row+7) != BLANK) {
+								downLeft = true;
+							}
+						}
+					}
+
+					//left
+					if(col-1 >= 0 && col-2 >= 0) {
+						if(atPosition(col-1, row).equals(isWhite())) {
+							if(atPosition(col-2, row).equals(isBlack())) {
+								left = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col-3, row).equals(isBlack()) && atPosition(col-3, row) != BLANK) {
+								left = true;
+							}
+							if(atPosition(col-4, row).equals(isBlack()) && atPosition(col-4, row) != BLANK) {
+								left = true;
+							}
+							if(atPosition(col-5, row).equals(isBlack()) && atPosition(col-5, row) != BLANK) {
+								left = true;
+							}
+							if(atPosition(col-6, row).equals(isBlack()) && atPosition(col-6, row) != BLANK) {
+								left = true;
+							}
+							if(atPosition(col-7, row).equals(isBlack()) && atPosition(col-7, row) != BLANK) {
+								left = true;
+							}
+						}
+					}
+
+					//upLeft
+					if(col-1 >= 0 && col-2 >= 0 && row-1 >= 0 && row-2 >= 0) {
+						if(atPosition(col-1, row-1).equals(isWhite())) {
+							if(atPosition(col-2, row-2).equals(isBlack())) {
+								upLeft = true;
+								validMoves[validMovesIndex] = col.toString() + " " + row.toString();
+								validMovesIndex++;
+							}
+							if(atPosition(col-3, row-3).equals(isBlack()) && atPosition(col-3, row-3) != BLANK) {
+								upLeft = true;
+							}
+							if(atPosition(col-4, row-4).equals(isBlack()) && atPosition(col-4, row-4) != BLANK) {
+								upLeft = true;
+							}
+							if(atPosition(col-5, row-5).equals(isBlack()) && atPosition(col-5, row-5) != BLANK) {
+								upLeft = true;
+							}
+							if(atPosition(col-6, row-6).equals(isBlack()) && atPosition(col-6, row-6) != BLANK) {
+								upLeft = true;
+							}
+							if(atPosition(col-7, row-7).equals(isBlack()) && atPosition(col-7, row-7) != BLANK) {
+								upLeft = true;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private void makeBlackMove(int x, int y) {
+		if(up == true) {
+			setSquare(x, y, BLACK);
+			y--;
+			while(atPosition(x,y) != BLANK && y >= 0) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				y--;
+				}
+			}
+		}
+		
+		if(upRight == true) {
+			setSquare(x, y, BLACK);
+			x++;
+			y--;
+			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				x++;
+				y--;
+				}
+			}
+		}
+		
+		if(right == true) {
+			setSquare(x, y, BLACK);
+			x++;
+			while(atPosition(x,y) != BLANK && x <= 7) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				x++;
+				}
+			}
+		}
+		
+		if(downRight == true) {
+			setSquare(x, y, BLACK);
+			x++;
+			y++;
+			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				x++;
+				y++;
+				}
+			}
+		}
+		
+		if(down == true) {
+			setSquare(x, y, BLACK);
+			y++;
+			while(atPosition(x,y) != BLANK && y <= 7) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				y++;
+				}
+			}
+		}
+		
+		if(downLeft == true) {
+			setSquare(x, y, BLACK);
+			x--;
+			y++;
+			while(atPosition(x,y) != BLANK && y <= 7 && x >= 0) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				x--;
+				y++;
+				}
+			}
+		}
+		
+		if(left == true) {
+			setSquare(x, y, BLACK);
+			x--;
+			while(atPosition(x,y) != BLANK && x >= 0) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				x--;
+				}
+			}
+		}
+		
+		if(upLeft == true) {
+			setSquare(x, y, BLACK);
+			x--;
+			y--;
+			while(atPosition(x,y) != BLANK && x >= 0 && y >= 0) {
+				if(atPosition(x, y).equals(isWhite())) {
+				setSquare(x, y, BLACK);
+				x--;
+				y--;
+				}
+			}
+		}
+	}
+	
+	private void makeWhiteMove(int x, int y) {
+		if(up == true) {
+			setSquare(x, y, WHITE);
+			y--;
+			while(atPosition(x,y) != BLANK && y >= 0) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				y--;
+				}
+			}
+		}
+		
+		if(upRight == true) {
+			setSquare(x, y, WHITE);
+			x++;
+			y--;
+			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				x++;
+				y--;
+				}
+			}
+		}
+		
+		if(right == true) {
+			setSquare(x, y, WHITE);
+			x++;
+			while(atPosition(x,y) != BLANK && x <= 7) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				x++;
+				}
+			}
+		}
+		
+		if(downRight == true) {
+			setSquare(x, y, WHITE);
+			x++;
+			y++;
+			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				x++;
+				y++;
+				}
+			}
+		}
+		
+		if(down == true) {
+			setSquare(x, y, WHITE);
+			y++;
+			while(atPosition(x,y) != BLANK && y <= 7) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				y++;
+				}
+			}
+		}
+		
+		if(downLeft == true) {
+			setSquare(x, y, WHITE);
+			x--;
+			y++;
+			while(atPosition(x,y) != BLANK && y <= 7 && x >= 0) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				x--;
+				y++;
+				}
+			}
+		}
+		
+		if(left == true) {
+			setSquare(x, y, WHITE);
+			x--;
+			while(atPosition(x,y) != BLANK && x >= 0) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				x--;
+				}
+			}
+		}
+		
+		if(upLeft == true) {
+			setSquare(x, y, WHITE);
+			x--;
+			y--;
+			while(atPosition(x,y) != BLANK && x >= 0 && y >= 0) {
+				if(atPosition(x, y).equals(isBlack())) {
+				setSquare(x, y, WHITE);
+				x--;
+				y--;
+				}
+			}
+		}
 	}
 	
 	//nextTurn() switches the current player
@@ -91,87 +517,68 @@ public class Game extends Board{
 		upLeft = false;
 		setPiece(color);
 		flipPiece();
+		flipPiece();
 //		int y1=y-1;
 //		int y2=y+1;
 //		int x1=x-1;
 //		int x2=x+1;
 		
-		//up
-		if(y-1 >= 0) {
-			if(atPosition(x, y-1).equals(getPiece())) {
-				up = true;
-				if(atPosition(x, y).equals(BLANK)) {
-					valid = true;
+		if(atPosition(x, y).equals(BLANK)) {
+			valid = true;
+			
+			//up
+			if(y-1 >= 0) {
+				if(atPosition(x, y-1).equals(getPiece())) {
+					up = true;
 				}
 			}
-		}
 		
-		//upRight
-		if(x+1 <= 7 && y-1 >= 0) {
-			if(atPosition(x+1, y-1).equals(getPiece())) {
-				upRight = true;
-				if(atPosition(x, y).equals(BLANK)) {
-					valid = true;
+			//upRight
+			if(x+1 <= 7 && y-1 >= 0) {
+				if(atPosition(x+1, y-1).equals(getPiece())) {
+					upRight = true;
 				}
 			}
-		}
 		
-		//right
-		if(x+1  <= 7) {
-			if(atPosition(x+1, y).equals(getPiece())) {
-				right = true;
-				if(atPosition(x, y).equals(BLANK)) {
-					valid = true;
+			//right
+			if(x+1 <= 7) {
+				if(atPosition(x+1, y).equals(getPiece())) {
+					right = true;
 				}
 			}
-		}
-		
-		//downRight
-		if(x+1 <= 7 && y+1 <= 7) {
-			if(atPosition(x+1, y+1).equals(getPiece())) {
-				downRight = true;
-				if(atPosition(x,y).equals(BLANK)) {
-					valid = true;
+			
+			//downRight
+			if(x+1 <= 7 && y+1 <= 7) {
+				if(atPosition(x+1, y+1).equals(getPiece())) {
+					downRight = true;
 				}
 			}
-		}
-		
-		//down
-		if(y+1 <= 7) {
-			if(atPosition(x, y+1).equals(getPiece())) {
-				down = true;
-				if(atPosition(x, y).equals(BLANK)) {
-					valid = true;
+
+			//down
+			if(y+1 <= 7) {
+				if(atPosition(x, y+1).equals(getPiece())) {
+					down = true;
 				}
 			}
-		}
-		
-		//downLeft
-		if(x-1 >= 0 && y+1 <= 7) {
-			if(atPosition(x-1, y+1).equals(getPiece())) {
-				downLeft = true;
-				if(atPosition(x,y).equals(BLANK)) {
-					valid = true;
+
+			//downLeft
+			if(x-1 >= 0 && y+1 <= 7) {
+				if(atPosition(x-1, y+1).equals(getPiece())) {
+					downLeft = true;
 				}
 			}
-		}
-		
-		//left
-		if(x-1 >= 0) {
-			if(atPosition(x-1, y).equals(getPiece())) {
-				left = true;
-				if(atPosition(x, y).equals(BLANK)) {
-					valid = true;
+
+			//left
+			if(x-1 >= 0) {
+				if(atPosition(x-1, y).equals(getPiece())) {
+					left = true;
 				}
 			}
-		}
-		
-		//upLeft
-		if(x-1 >= 0 && y-1 >= 0) {
-			if(atPosition(x-1, y-1).equals(getPiece())) {
-				upLeft = true;
-				if(atPosition(x, y).equals(BLANK)) {
-					valid = true;
+
+			//upLeft
+			if(x-1 >= 0 && y-1 >= 0) {
+				if(atPosition(x-1, y-1).equals(getPiece())) {
+					upLeft = true;
 				}
 			}
 		}
@@ -219,7 +626,7 @@ public class Game extends Board{
 		System.out.println("Current Player: BLACK");
 		System.out.println("BLACK Player, enter your next move in format \"x y\"");
 		System.out.println("You may also enter p to pass or q to quit the program");
-		
+		checkBlackMoves();
 		try{
 			if(input.hasNextInt() == true) {
 				int x = input.nextInt();
@@ -227,38 +634,16 @@ public class Game extends Board{
 				//adjust coordinates from user input to array coordinates 
 				x--;
 				y--;
-				isValidMove(x, y, setPiece(BLACK));
-				if(valid == false) {
-					System.out.println("Invalid move! Piece must be placed in a straight line across opponent's piece.");
-					nextTurn();
-				}
-				else {
-					if(up == true) {
-						setSquare(x, y-1, BLACK);
+				StringBuilder sb = new StringBuilder();
+				sb.setLength(0);
+				sb.append(x + " " + y);
+				for(int i = 0; i < 32; i++) {
+					if(validMoves[i] != null) {
+						System.out.println(validMoves[i]);
+						if(validMoves[i].equals(sb.toString())) {
+							makeBlackMove(x, y);
+						}
 					}
-					if(upRight == true) {
-						setSquare(x+1, y-1, BLACK);
-					}
-					if(right == true) {
-						setSquare(x+1, y, BLACK);
-					}
-					if(downRight == true) {
-						setSquare(x+1, y+1, BLACK);
-					}
-					if(down == true) {
-						setSquare(x, y+1, BLACK);
-					}
-					if(downLeft == true) {
-						setSquare(x-1, y+1, BLACK);
-					}
-					if(left == true) {
-						setSquare(x-1, y, BLACK);
-					}
-					if(upLeft == true) {
-						setSquare(x-1, y-1, BLACK);
-					}
-					setSquare(x, y, setPiece(BLACK));
-					drawBoard();
 				}
 			}
 			else if(input.hasNext("q") == true) {
@@ -281,7 +666,7 @@ public class Game extends Board{
 			System.out.println("INPUT MISMATCH -- Please only use numbers.");
 			nextTurn();
 		}
-		
+		drawBoard();
 		nextTurn();
 	}
 	
@@ -295,41 +680,19 @@ public class Game extends Board{
 			if(input.hasNextInt() == true) {
 				int x = input.nextInt();
 				int y = input.nextInt();
-				//adjust coordinates from user input to array coordinates
+				//adjust coordinates from user input to array coordinates 
 				x--;
 				y--;
-				isValidMove(x, y, setPiece(WHITE));
-				if(valid == false) {
-					System.out.println("Invalid move! Piece must be placed in a straight line across opponent's piece.");
-					nextTurn();
-				}
-				else {
-					if(up == true) {
-						setSquare(x, y-1, WHITE);
+				StringBuilder sb = new StringBuilder();
+				sb.setLength(0);
+				sb.append(x + " " + y);
+				for(int i = 0; i < 32; i++) {
+					if(validMoves[i] != null) {
+						System.out.println(validMoves[i]);
+						if(validMoves[i].equals(sb.toString())) {
+							makeBlackMove(x, y);
+						}
 					}
-					if(upRight == true) {
-						setSquare(x+1, y-1, WHITE);
-					}
-					if(right == true) {
-						setSquare(x+1, y, WHITE);
-					}
-					if(downRight == true) {
-						setSquare(x+1, y+1, WHITE);
-					}
-					if(down == true) {
-						setSquare(x, y+1, WHITE);
-					}
-					if(downLeft == true) {
-						setSquare(x-1, y+1, WHITE);
-					}
-					if(left == true) {
-						setSquare(x-1, y, WHITE);
-					}
-					if(upLeft == true) {
-						setSquare(x-1, y-1, WHITE);
-					}
-					setSquare(x, y, setPiece(WHITE));
-					drawBoard();
 				}
 			}
 			else if(input.hasNext("q") == true) {
@@ -353,7 +716,7 @@ public class Game extends Board{
 			System.out.println("INPUT MISMATCH -- Please only use numbers.");
 			nextTurn();
 		}
-		
+		drawBoard();
 		nextTurn();
 	}
 	
@@ -373,6 +736,7 @@ public class Game extends Board{
 
 			if(othello.currentPlayer == othello.PLAYER_BLACK) {
 				othello.blackTurn();
+				
 			}
 			
 			//WHITE player turn
