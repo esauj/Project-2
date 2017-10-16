@@ -633,16 +633,21 @@ public class Game extends Board{
 	}
 	
 	private void makeWhiteMove(int x, int y) {
+		int x1 = x;
+		int y1 = y;
+		
 		if(up == true) {
 			setSquare(x, y, WHITE);
 			y--;
 			while(atPosition(x,y) != BLANK && y >= 0) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
-				y--;
 				}
+				y--;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(upRight == true) {
 			setSquare(x, y, WHITE);
@@ -651,11 +656,13 @@ public class Game extends Board{
 			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
+				}
 				x++;
 				y--;
-				}
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(right == true) {
 			setSquare(x, y, WHITE);
@@ -663,10 +670,12 @@ public class Game extends Board{
 			while(atPosition(x,y) != BLANK && x <= 7) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
-				x++;
 				}
+				x++;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(downRight == true) {
 			setSquare(x, y, WHITE);
@@ -675,11 +684,13 @@ public class Game extends Board{
 			while(atPosition(x,y) != BLANK && x <= 7 && y >= 0) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
+				}
 				x++;
 				y++;
-				}
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(down == true) {
 			setSquare(x, y, WHITE);
@@ -687,10 +698,12 @@ public class Game extends Board{
 			while(atPosition(x,y) != BLANK && y <= 7) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
-				y++;
 				}
+				y++;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(downLeft == true) {
 			setSquare(x, y, WHITE);
@@ -699,11 +712,13 @@ public class Game extends Board{
 			while(atPosition(x,y) != BLANK && y <= 7 && x >= 0) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
+				}
 				x--;
 				y++;
-				}
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(left == true) {
 			setSquare(x, y, WHITE);
@@ -711,10 +726,12 @@ public class Game extends Board{
 			while(atPosition(x,y) != BLANK && x >= 0) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
-				x--;
 				}
+				x--;
 			}
 		}
+		x1 = x;
+		y1 = y;
 		
 		if(upLeft == true) {
 			setSquare(x, y, WHITE);
@@ -723,9 +740,9 @@ public class Game extends Board{
 			while(atPosition(x,y) != BLANK && x >= 0 && y >= 0) {
 				if(atPosition(x, y).equals(isBlack())) {
 				setSquare(x, y, WHITE);
+				}
 				x--;
 				y--;
-				}
 			}
 		}
 	}
@@ -775,94 +792,6 @@ public class Game extends Board{
 			movesLeft = false;
 		}
 	}
-	
-	/*isValidMove() takes the player's adjusted input as coordinates as well
-	as the color of the turn. The assigned Piece color is then flipped in order
-	to check for opposite colors in between the current piece.
-	If there is an opponent's piece between, and if the space is already blank,
-	it returns true on both if loops*/
-//	private void isValidMove(int x, int y, String color) {
-//		valid = false;
-//		up = false;
-//		upRight = false;
-//		right = false;
-//		downRight = false;
-//		down = false;
-//		downLeft = false;
-//		left = false;
-//		upLeft = false;
-//		setPiece(color);
-//		flipPiece();
-//		flipPiece();
-//		int y1=y-1;
-//		int y2=y+1;
-//		int x1=x-1;
-//		int x2=x+1;
-//		
-//		if(atPosition(x, y).equals(BLANK)) {
-//			valid = true;
-//			
-//			//up
-//			if(y-1 >= 0) {
-//				if(atPosition(x, y-1).equals(getPiece())) {
-//					up = true;
-//				}
-//			}
-//		
-//			//upRight
-//			if(x+1 <= 7 && y-1 >= 0) {
-//				if(atPosition(x+1, y-1).equals(getPiece())) {
-//					upRight = true;
-//				}
-//			}
-//		
-//			//right
-//			if(x+1 <= 7) {
-//				if(atPosition(x+1, y).equals(getPiece())) {
-//					right = true;
-//				}
-//			}
-//			
-//			//downRight
-//			if(x+1 <= 7 && y+1 <= 7) {
-//				if(atPosition(x+1, y+1).equals(getPiece())) {
-//					downRight = true;
-//				}
-//			}
-//
-//			//down
-//			if(y+1 <= 7) {
-//				if(atPosition(x, y+1).equals(getPiece())) {
-//					down = true;
-//				}
-//			}
-//
-//			//downLeft
-//			if(x-1 >= 0 && y+1 <= 7) {
-//				if(atPosition(x-1, y+1).equals(getPiece())) {
-//					downLeft = true;
-//				}
-//			}
-//
-//			//left
-//			if(x-1 >= 0) {
-//				if(atPosition(x-1, y).equals(getPiece())) {
-//					left = true;
-//				}
-//			}
-//
-//			//upLeft
-//			if(x-1 >= 0 && y-1 >= 0) {
-//				if(atPosition(x-1, y-1).equals(getPiece())) {
-//					upLeft = true;
-//				}
-//			}
-//		}
-//		
-//		else if(atPosition(x, y) != BLANK){
-//			valid = false;
-//		}
-//	}
 
 	/*scoreGame() iterates through a double for loop and tallies the number
 	 * of pieces that each player has on the board*/
@@ -877,10 +806,6 @@ public class Game extends Board{
 				else if(atPosition(i, j) == WHITE) {
 					whiteScore++;
 				}
-				/*else {
-					System.out.println("ERROR CALCULATING SCORE");
-					System.exit(1);
-				}*/
 			}
 		}
 		
